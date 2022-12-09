@@ -1,9 +1,8 @@
 .profile__button {
     width: 150px;
     border: 2px solid #fff;
-    height: 50px;
     background: transparent;
-    padding: 0;
+    padding: 23px;
     border-radius: 2px;
     position: relative;
     background-image: url('../../../images/icon_plus.svg');
@@ -16,9 +15,9 @@
     opacity: .6;
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 768px) {
     .profile__button {
-        width: 85%;
+        width: 65%;
     }
 }
 
@@ -29,5 +28,7 @@
 @media screen and (max-width:320px) {
     .profile__button {
         width: 100%;
+        background-image: url('../../../images/plus_mobile.png');
+
     }
 }

@@ -11,71 +11,73 @@
 
 <body class="root">
     <header class="header">
-        <nav class="navbar">
-            <img src="./images/Vector.svg" alt="" class="logo">
-        </nav>
+        <img src="./images/Vector.svg" alt="Логотип сайта" class="header__logo">
     </header>
     <main class="page">
         <section class="profile">
             <div class="profile__wrapper">
-                <img src="./images/image.jpg" alt="" class="profile__avatar">
+                <img src="./images/image.jpg" alt="Аватар профиля" class="profile__avatar">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button"></button>
+                    <button aria-label="Редактировать" type="button" class="profile__edit-button"></button>
                     <p class="profile__duty">Исследователь океана</p>
                 </div>
-                <button class="profile__button"></button>
+                <button aria-label="Добавить" type="button" class="profile__button"></button>
             </div>
         </section>
         <section class="elements">
-            <ul class="cards">
-                <li class="cards__item">
-                    <img src="./images/Karachevsk.jpg" alt="Сентинский храм Карачаево-Черкесия" class="cards__image">
-                    <div class="cards__wrapper">
-                        <h2 class="cards__name">Карачаевск</h2>
-                        <button class="cards__like"></button>
+            <ul class="elements__cards">
+                <li class="card">
+                    <img src="./images/Karachevsk.jpg" alt="Сентинский храм Карачаево-Черкесия" class="card__image">
+                    <div class="card__wrapper">
+                        <h2 class="card__name">Карачаевск</h2>
+                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
                 </li>
-                <li class="cards__item">
-                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус Карачаево-Черкесия" class="cards__image">
-                    <div class="cards__wrapper">
-                        <h2 class="cards__name">Гора Эльбрус</h2>
-                        <button class="cards__like"></button>
+                <li class="card">
+                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус Карачаево-Черкесия" class="card__image">
+                    <div class="card__wrapper">
+                        <h2 class="card__name">Гора Эльбрус</h2>
+                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
-                <li class="cards__item">
-                    <img src="./images/dombay.jpg" alt="Гора Белалакая Домбай" class="cards__image">
-                    <div class="cards__wrapper">
-                        <h2 class="cards__name">Домбай</h2>
-                        <button class="cards__like"></button>
+                <li class="card">
+                    <img src="./images/dombay.jpg" alt="Гора Белалакая Домбай" class="card__image">
+                    <div class="card__wrapper">
+                        <h2 class="card__name">Домбай</h2>
+                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
-                <li class="cards__item">
-                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус Карачаево-Черкесия" class="cards__image">
-                    <div class="cards__wrapper">
-                        <h2 class="cards__name">Гора Эльбрус</h2>
-                        <button class="cards__like"></button>
+                <li class="card">
+                    <img src="./images/elbrus.jpg" alt="Гора Эльбрус Карачаево-Черкесия" class="card__image">
+                    <div class="card__wrapper">
+                        <h2 class="card__name">Гора Эльбрус</h2>
+                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
-                <li class="cards__item">
-                    <img src="./images/dombay.jpg" alt="Гора Белалакая Домбай" class="cards__image">
-                    <div class="cards__wrapper">
-                        <h2 class="cards__name">Домбай</h2>
-                        <button class="cards__like"></button>
+                <li class="card">
+                    <img src="./images/dombay.jpg" alt="Гора Белалакая Домбай" class="card__image">
+                    <div class="card__wrapper">
+                        <h2 class="card__name">Домбай</h2>
+                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
-                <li class="cards__item">
-                    <img src="./images/Karachevsk.jpg" alt="Сентинский храм Карачаево-Черкесия" class="cards__image">
-                    <div class="cards__wrapper">
-                        <h2 class="cards__name">Карачаево-Черкессия</h2>
-                        <button class="cards__like"></button>
+                <li class="card">
+                    <img src="./images/Karachevsk.jpg" alt="Сентинский храм Карачаево-Черкесия" class="card__image">
+                    <div class="card__wrapper">
+                        <h2 class="card__name">Карачаево-Черкессия</h2>
+                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
             </ul>
         </section>
         <section class="popup">
-            <form class="popup__container" action="#">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input class="popup__field" type="text" placeholder="Жак-Ив Кусто">
-                <input class="popup__field" type="text" placeholder="Исследователь океана">
-                <input class="popup__button" type="button" value="Сохранить">
-                <button class="popup__close-button"></button>
-            </form>
+            <div class="popup__container">
+                <button aria-label="Закрыть" type="button" class="popup__close-button"></button>
+                <form name="profile-form" action="#">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input class="popup__field" name="Name profile" type="text" placeholder="Жак-Ив Кусто">
+                    <input class="popup__field" name="Name duty" type="text" placeholder="Исследователь океана">
+                    <button aria-label="Сохранить" class="popup__button" type="submit">Сохранить</button>
+                </form>
+
+            </div>
+
         </section>
     </main>
     <footer class="footer">

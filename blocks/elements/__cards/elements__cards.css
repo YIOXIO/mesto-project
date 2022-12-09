@@ -1,4 +1,4 @@
-.cards {
+.elements__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, 282px);
     list-style: none;
@@ -9,8 +9,18 @@
     justify-content: center;
 }
 
+
+@media screen and (max-width: 900px) {
+    .elements__cards {
+        max-width: 85vw;
+
+
+    }
+}
+
+
 @media screen and (max-width: 320px) {
-    .cards {
+    .elements__cards {
         margin: 0 auto 48px;
     }
 }

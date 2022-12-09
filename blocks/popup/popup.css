@@ -10,3 +10,18 @@
     background: #000000bd;
     display: none;
 }
+
+@media screen and (max-width: 600px) {
+    .popup {
+        max-width: 85vw;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup {
+        max-width: 320px;
+        margin: 0 auto;
+
+    }
+}

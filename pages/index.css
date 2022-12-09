@@ -4,12 +4,9 @@
 @import '../blocks/root/root.css';
 
 
-/* Ститили NAVBAR */
-@import '../blocks/navbar/navbar.css';
-
-/* Стили LOGO */
-@import '../blocks/logo/logo.css';
-
+/* Стили HEADER */
+@import '../blocks/header/__logo/header__logo.css';
+@import '../blocks/header/header.css';
 /* Стили Секции PROFILE */
 @import '../blocks/profile/__duty/profile__duty.css';
 @import '../blocks/profile/__info/profile__info.css';
@@ -28,14 +25,16 @@
 @import '../blocks/popup/__field/popup__filed.css';
 @import '../blocks/popup/__close-button/popup__close-button.css';
 
-/* Стили для Cards */
-@import '../blocks/cards/cards.css';
-@import '../blocks/cards/__item/cards__item.css';
-@import '../blocks/cards/__image/cards__image.css';
-@import '../blocks/cards/__wrapper/cards__wrapper.css';
-@import '../blocks/cards/__name/cards__name.css';
-@import '../blocks/cards/__like/cards__like.css';
-@import '../blocks/cards/__like/_active/cards__like_active.css';
+/* Стили для Elements */
+@import '../blocks/elements/__cards/elements__cards.css';
+
+/* Стили для Card */
+@import '../blocks/card/card.css';
+@import '../blocks/card/__image/card__image.css';
+@import '../blocks/card/__wrapper/card__wrapper.css';
+@import '../blocks/card/__name/card__name.css';
+@import '../blocks/card/__like/card__like.css';
+@import '../blocks/card/__like/_active/card__like_active.css';
 
 
 /* Стиили для FOOTER */

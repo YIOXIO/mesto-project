@@ -1,9 +1,9 @@
-.logo {
+.header__logo {
     margin-bottom: 40px
 }
 
 @media screen and (max-width: 320px) {
-    .logo {
+    .header__logo {
         margin: 0 0 31.6px 27px;
         width: 103px;
     }

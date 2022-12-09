@@ -5,10 +5,10 @@
     margin-left: 31px;
     gap: 8px;
     margin-right: auto;
-    align-items: baseline;
+    align-items: center;
 }
 
-@media screen and (max-width:645px) {
+@media screen and (max-width:768px) {
     .profile__info {
         margin: 0;
         row-gap: 5px;
