@@ -5,6 +5,25 @@
     border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
+@media screen and (max-width: 880px) {
+    .navbar {
+        max-width: 675px;
+        margin: 45px auto 0;
+
+    }
+}
+
+
+@media screen and (max-width: 645px) {
+    .navbar {
+        max-width: 575px;
+        margin: 45px auto 0;
+
+    }
+}
+
+
+
 @media screen and (max-width: 320px) {
     .navbar {
         margin: 28px auto 0;

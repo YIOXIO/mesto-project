@@ -13,12 +13,12 @@
     position: relative;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 475px) {
     .popup__container {
-        width: 282px;
+        width: 342px;
         padding: 25px 22px;
-        gap: 60px
+        gap: 40px;
     }
 
-    ;
+
 }

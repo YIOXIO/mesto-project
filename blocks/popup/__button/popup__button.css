@@ -27,3 +27,10 @@
         margin: 0;
     }
 }
+
+
+@media screen and (max-width: 475px) {
+    .popup__button {
+        width: 95%;
+    }
+}
