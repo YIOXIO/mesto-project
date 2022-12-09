@@ -31,7 +31,7 @@
                     <img src="./images/Karachevsk.jpg" alt="Сентинский храм Карачаево-Черкесия" class="card__image">
                     <div class="card__wrapper">
                         <h2 class="card__name">Карачаевск</h2>
-                        <button type="button" aria-label="Поставить лайк" class="card__like"></button>
+                        <button id="like" type="button" aria-label="Поставить лайк" class="card__like"></button>
                     </div>
                 </li>
                 <li class="card">
@@ -66,13 +66,13 @@
                     </div>
             </ul>
         </section>
-        <section class="popup">
+        <section id="popup" class="popup">
             <div class="popup__container">
                 <button aria-label="Закрыть" type="button" class="popup__close-button"></button>
                 <form name="profile-form" action="#">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__field" name="Name profile" type="text" placeholder="Жак-Ив Кусто">
-                    <input class="popup__field" name="Name duty" type="text" placeholder="Исследователь океана">
+                    <input class="popup__field" name="profile" type="text" placeholder="Жак-Ив Кусто">
+                    <input class="popup__field" name="duty" type="text" placeholder="Исследователь океана">
                     <button aria-label="Сохранить" class="popup__button" type="submit">Сохранить</button>
                 </form>
 
