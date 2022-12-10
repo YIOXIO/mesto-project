@@ -16,6 +16,7 @@
         line-height: 33px;
         text-align: center;
         margin-left: 25px;
+        max-width: calc(90% - 60px);
 
     }
 }
