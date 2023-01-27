@@ -6,9 +6,12 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background: #000000bd;
-    display: none;
+    transition: visibility .2s ease-in, opacity .2s ease-in;
+    visibility: hidden;
+    opacity: 0;
+
 }
 
 @media screen and (max-width: 600px) {
