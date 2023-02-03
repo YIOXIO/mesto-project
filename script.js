@@ -115,7 +115,7 @@ buttonOpen.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
 editForm.addEventListener('submit', formSubmitHandler);
 closeImage.addEventListener('click', closePopup)
-openImagePop.addEventListener('click', OpenImage)
+// openImagePop.addEventListener('click', OpenImage)
 
 // _____________________________________________________________________
 
