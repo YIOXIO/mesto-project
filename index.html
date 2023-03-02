@@ -44,16 +44,15 @@
                 </form>
             </div>
         </section>
-        </section>
         <section class="popup popup_new-place">
             <div class="popup__container">
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_popup_new-place"></button>
                 <form name="profile-form" id="card-form">
                     <h2 class="popup__title">Новое место</h2>
-                    <input class="popup__field popup__field_place" value="" name="place" type="input-text" required
+                    <input class="popup__field popup__field_place" value="" name="place" type="text" required
                         placeholder="Название">
-                    <input class="popup__field popup__field_url" value="" name="image" type="input-url" required
+                    <input class="popup__field popup__field_url" value="" name="image" type="url" required
                         placeholder="Ссылка на картинку">
                     <button aria-label="Сохранить" class="popup__button popup__button_popup_new-place"
                         type="submit">Создать</button>
@@ -61,21 +60,20 @@
             </div>
         </section>
         <section class="popup popup_image-form">
-            <div class="popup__container">
+            <div class="popup__container popup__container_image">
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_popup_image "></button>
                 <figure class="popup__figure">
-                    <img src="" alt="" class="popup__image">
-                    <figcaption class="popup__caption"></figcaption>
+                    <img src="https://images.unsplash.com/photo-1677652704119-1497d836c396?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        alt="" class="popup__image">
+                    <figcaption class="popup__caption">asdfasdfasdfasdf</figcaption>
                 </figure>
-
             </div>
         </section>
-
     </main>
     <template class="card-template">
         <li class="card">
-            <img src="" alt="" class="card__image">
+            <img src="" alt="Изображение" class="card__image">
             <div class="card__wrapper">
                 <h2 class="card__name"></h2>
                 <button type="button" aria-label="Поставить лайк" class="card__like"></button>
@@ -84,9 +82,10 @@
         </li>
     </template>
     <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+        <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
-    <script src="./script.js"></script>
+    <script src="./scriptHome.js"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>
