@@ -21,6 +21,8 @@ const addButton = document.querySelector('.popup__button_popup_new-place');
 const closeImage = document.querySelector('.popup__close-button_popup_image');
 const popupImage = document.querySelector('.popup_image-form');
 const openImagePop = document.querySelector('#open-image');
+const popupCaption = document.querySelector('.popup__caption');
+
 
 let initialCards = [
     {
@@ -107,9 +109,12 @@ function popupNewPlace() {
 
 };
 
-function openImage() {
-    popupImage.classList.add('popup_opened')
-
+function openImage(event) {
+    popupImage.classList.add('popup_opened');
+    const image = document.querySelector('.popup__image');
+    image.src = event.target.src;
+    const cardElement = event.target.closest('.card');
+    popupCaption.textContent = cardElement.querySelector('.card__name').textContent;
 };
 
 
