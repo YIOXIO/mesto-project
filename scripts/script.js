@@ -11,11 +11,11 @@ const closeButton = popup.querySelector('.popup__close-button');
 const addButton = document.querySelector('.profile__button');
 const popupNewCard = document.querySelector('.popup_new-place');
 const editForm = document.querySelector('#edit-form');
-let nameInput = editForm.querySelector('.popup__field_name');
-let jobInput = editForm.querySelector('.popup__field_duty');
-cardForm = document.querySelector('#card-form');
-let urlInput = cardForm.querySelector('.popup__field_url');
-let placeInput = cardForm.querySelector('.popup__field_place');
+const nameInput = editForm.querySelector('.popup__field_name');
+const jobInput = editForm.querySelector('.popup__field_duty');
+const cardForm = document.querySelector('#card-form');
+const urlInput = cardForm.querySelector('.popup__field_url');
+const placeInput = cardForm.querySelector('.popup__field_place');
 
 
 
@@ -46,7 +46,7 @@ function deleteCard(event) {
 };
 // 
 // Поставить лайк
-function cardLike(event) {
+function HandleLikeClick(event) {
     event.target.closest('.card__like').classList.toggle('card__like_active');
 }
 // ________________________________________________________
@@ -76,39 +76,38 @@ addButton.addEventListener('click',
         popupNewCard.classList.add('popup_opened')
     }
 )
-function formSubmitHandlerW(evt) {
+function handleSubmitFormAddNewCard(evt) {
     evt.preventDefault()
     const newCard = {}
     newCard.name = placeInput.value,
         newCard.link = urlInput.value;
-    cards(newCard);
-    placeInput.value = '';
-    urlInput.value = '';
+    renderCard(newCard);
+    cardForm.reset()
     popupNewCard.classList.remove('popup_opened')
 
 }
 
-cardForm.addEventListener('submit', formSubmitHandlerW);
+cardForm.addEventListener('submit', handleSubmitFormAddNewCard);
 // __________________________________
 
 
 // Карточки из массива
-function render(data) {
+function createCard(data) {
     const card = cardTemplate.cloneNode(true);
     card.querySelector('.card__image').src = data.link;
     card.querySelector('.card__name').textContent = data.name;
     card.querySelector('.card__trash').addEventListener('click', deleteCard)
-    card.querySelector('.card__like').addEventListener('click', cardLike)
+    card.querySelector('.card__like').addEventListener('click', HandleLikeClick)
     card.querySelector('.card__image').addEventListener('click', openImage);
 
     return card;
 }
 
-function cards(data) {
-    elements.prepend(render(data));
+function renderCard(data) {
+    elements.prepend(createCard(data));
 };
 
 initialCards.forEach((data) => {
-    cards(data);
+    renderCard(data);
 });
 
