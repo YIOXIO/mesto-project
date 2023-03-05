@@ -55,6 +55,7 @@ function openImage(event) {
     popupImage.classList.add('popup_opened');
     const image = document.querySelector('.popup__image');
     image.src = event.target.src;
+    image.alt = event.target.alt;
     const card = event.target.closest('.card');
     popupCaption.textContent = card.querySelector('.card__name').textContent;
 }
@@ -95,6 +96,7 @@ cardForm.addEventListener('submit', handleSubmitFormAddNewCard);
 function createCard(data) {
     const card = cardTemplate.cloneNode(true);
     card.querySelector('.card__image').src = data.link;
+    card.querySelector('.card__image').alt = data.name;
     card.querySelector('.card__name').textContent = data.name;
     card.querySelector('.card__trash').addEventListener('click', deleteCard)
     card.querySelector('.card__like').addEventListener('click', HandleLikeClick)
