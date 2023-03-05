@@ -1,7 +1,7 @@
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
 const elements = document.querySelector('.elements__cards');
 const popupImage = document.querySelector('.popup_image-form');
-const popupCaption = popupImage.querySelector('.popup__caption');
+const popupNameImage = popupImage.querySelector('.popup__caption');
 const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_profile-edit');
 const editButton = document.querySelector('.profile__edit-button');
@@ -57,7 +57,7 @@ function openImage(event) {
     image.src = event.target.src;
     image.alt = event.target.alt;
     const card = event.target.closest('.card');
-    popupCaption.textContent = card.querySelector('.card__name').textContent;
+    popupNameImage.textContent = card.querySelector('.card__name').textContent;
 }
 // ____________________________________________________________________________
 
