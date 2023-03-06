@@ -4,7 +4,7 @@ const popupImage = document.querySelector('.popup_image-form');
 const popupNameImage = popupImage.querySelector('.popup__caption');
 const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_profile-edit');
-const editButton = document.querySelector('.profile__edit-button');
+const profileEditButton = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__name');
 const profileDuty = document.querySelector('.profile__duty');
 const closeButton = popup.querySelector('.popup__close-button');
@@ -20,14 +20,14 @@ const placeInput = cardForm.querySelector('.popup__field_place');
 
 
 
-
 // Открыть профиль
 function openProfile() {
     popup.classList.add('popup_opened');
     nameInput.value = profileName.textContent;
     jobInput.value = profileDuty.textContent;
 };
-editButton.addEventListener('click', openProfile)
+
+profileEditButton.addEventListener('click', openProfile)
 // _________________
 
 
