@@ -19,6 +19,8 @@ const placeInput = cardForm.querySelector('.popup__field_place');
 
 
 
+
+
 // Открыть профиль
 function openProfile() {
     popup.classList.add('popup_opened');
