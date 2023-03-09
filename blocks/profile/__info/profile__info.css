@@ -1,21 +1,19 @@
 .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 351px;
-    margin-left: 31px;
-    gap: 8px;
-    margin-right: auto;
+    display: grid;
+    max-width: 100%;
+    gap: 16px;
     align-items: center;
+    grid-template-areas:
+        "avatar name edit"
+        "avatar duty .";
 }
 
 @media screen and (max-width:768px) {
     .profile__info {
-        margin: 0;
-        row-gap: 5px;
-        column-gap: 10px;
-        justify-content: center;
-        align-items: center;
-        max-width: 80vw;
+        grid-template-areas:
+            "avatar avatar"
+            "name edit"
+            "duty duty";
     }
 }
 

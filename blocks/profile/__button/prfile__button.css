@@ -17,10 +17,17 @@
 
 @media screen and (max-width: 768px) {
     .profile__button {
-        width: 65%;
+        width: 40%;
     }
 }
 
+
+
+@media screen and (max-width: 410px) {
+    .profile__button {
+        width: 80%;
+    }
+}
 
 
 

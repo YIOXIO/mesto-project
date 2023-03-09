@@ -7,16 +7,16 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: calc(100% - 50px);
+    grid-area: name;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
     .profile__name {
         font-size: 27px;
         line-height: 33px;
         text-align: center;
         margin-left: 25px;
-        max-width: calc(90% - 60px);
+
 
     }
 }

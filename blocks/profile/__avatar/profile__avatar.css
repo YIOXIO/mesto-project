@@ -4,4 +4,11 @@
     border-radius: 50%;
     width: 100%;
     object-fit: cover;
+    grid-area: avatar;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__avatar {
+        justify-self: center;
+    }
 }

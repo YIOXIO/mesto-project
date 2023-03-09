@@ -2,17 +2,12 @@
     display: flex;
     max-width: 880px;
     margin: 40px auto 50px;
+    justify-content: space-between;
     align-items: center;
 }
 
 
 
-@media screen and (max-width: 900px) {
-    .profile__wrapper {
-        max-width: 85vw;
-
-    }
-}
 
 @media screen and (max-width: 768px) {
     .profile__wrapper {

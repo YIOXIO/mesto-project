@@ -6,11 +6,21 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    grid-area: duty;
+
 }
+
+@media screen and (max-width: 768px) {
+    .profile__duty {
+        justify-self: center;
+    }
+}
+
 
 @media screen and (max-width:320px) {
     .profile__duty {
         font-size: 14px;
         line-height: 17px;
+        justify-self: center;
     }
 }
