@@ -24,14 +24,24 @@ const buttonClosePopupImage = popupImage.querySelector('.popup__close-button_pop
 
 
 
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
+function openPopup(evt) {
+    evt.classList.add('popup_opened');
 }
 
 
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
+function closePopup(evt) {
+    evt.classList.remove('popup_opened');
 }
+
+document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape')
+        closePopup(popupImage);
+    closePopup(popupNewCard);
+    closePopup(popupProfile);
+
+})
+
+
 
 // Открыть профиль
 function openProfile() {
@@ -40,7 +50,7 @@ function openProfile() {
     jobInput.value = profileDuty.textContent;
 };
 
-profileEditButton.addEventListener('click', openProfile)
+profileEditButton.addEventListener('click', openProfile);
 // _________________
 
 
@@ -52,17 +62,17 @@ function handleSubmitFormProfileEdit(evt) {
     closePopup(popupProfile)
 
 }
-editForm.addEventListener('submit', handleSubmitFormProfileEdit)
+editForm.addEventListener('submit', handleSubmitFormProfileEdit);
 // ____________________________________
 
 // Удалить карточку 
-function handleDeleteCard(event) {
-    event.target.closest('.card').remove()
+function handleDeleteCard(evt) {
+    evt.target.closest('.card').remove()
 };
 // 
 // Поставить лайк
-function handleLikeClick(event) {
-    event.target.closest('.card__like').classList.toggle('card__like_active');
+function handleLikeClick(evt) {
+    evt.target.closest('.card__like').classList.toggle('card__like_active');
 }
 // ________________________________________________________
 // Открыть картинку 
