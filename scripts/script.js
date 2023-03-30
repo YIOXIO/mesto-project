@@ -36,9 +36,6 @@ function closePopup(evt) {
 document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape')
         closePopup(popupImage);
-    closePopup(popupNewCard);
-    closePopup(popupProfile);
-
 })
 
 
