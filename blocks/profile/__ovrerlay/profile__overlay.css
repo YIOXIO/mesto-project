@@ -1,0 +1,31 @@
+.profile__overlay {
+    cursor: pointer;
+    position: relative;
+    grid-area: avatar;
+
+
+}
+
+.profile__overlay:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    visibility: visible;
+    opacity: 0;
+    transition: visibility .2s ease-in, opacity .2s ease-in;
+
+}
+
+.profile__overlay:hover:after {
+    background: rgba(0, 0, 0, .8) url('../../../images/edit-pencil.svg');
+    background-size: 25%;
+    background-position: center;
+    background-repeat: no-repeat;
+    visibility: visible;
+    opacity: 1;
+
+
+}

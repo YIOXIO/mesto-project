@@ -2,7 +2,8 @@
     display: grid;
     max-width: 70%;
     gap: 16px;
-    align-items: center;
+    row-gap: 0px;
+    align-items: start;
     grid-template-areas:
         "avatar name edit"
         "avatar duty .";

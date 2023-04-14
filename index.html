@@ -17,8 +17,10 @@
         <section class="profile">
             <div class="profile__wrapper">
                 <div class="profile__info">
-                    <img src="https://vinylgif.com/gifs/201412/against-me---new-wave.gif" alt="Аватар профиля"
-                        class="profile__avatar">
+                    <div class="profile__overlay">
+                        <img src="https://vinylgif.com/gifs/201412/against-me---new-wave.gif" alt="Аватар профиля"
+                            class="profile__avatar">
+                    </div>
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button aria-label="Редактировать" type="button" class="profile__edit-button"></button>
                     <p class="profile__duty">Исследователь океана</p>
@@ -34,7 +36,7 @@
             <div class="popup__container">
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_profile-edit"></button>
-                <form name="profile-form" id="edit-form">
+                <form name="profile-form" id="edit-form" novalidate>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <input class="popup__field popup__field_name" value="" name="name" type="text" required
                         placeholder="Жак-Ив Кусто">
@@ -49,12 +51,14 @@
             <div class="popup__container">
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_popup_new-place"></button>
-                <form name="profile-form" id="card-form">
+                <form class="form" name="profile-form" id="card-form" novalidate>
                     <h2 class="popup__title">Новое место</h2>
-                    <input class="popup__field popup__field_place" value="" name="place" type="text" required
-                        placeholder="Название">
-                    <input class="popup__field popup__field_url" value="" name="image" type="url" required
-                        placeholder="Ссылка на картинку">
+                    <input class="popup__field popup__field_place" minlength="25" id="input-name" value="" name="place"
+                        type="text" required placeholder="Название">
+                    <span class="popup__field-error input-name-error">Вы пропустили это поле</span>
+                    <input class="popup__field popup__field_url" value="" id="input-url" name="image" type="url"
+                        required placeholder="Ссылка на картинку">
+                    <span class="popup__field-error input-url-error">Введите адрес сайта.</span>
                     <button aria-label="Сохранить" class="popup__button popup__button_popup_new-place"
                         type="submit">Создать</button>
                 </form>
@@ -70,7 +74,24 @@
                 </figure>
             </div>
         </section>
+        <section class="popup popup_profile-avatar">
+            <div class="popup__container">
+                <button aria-label="Закрыть" type="button"
+                    class="popup__close-button popup__close-button_popup_image"></button>
+                <form name="profile-form" id="card-form" novalidate>
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <input class="popup__field popup__field_url" value="" id="input-url" name="image" type="url"
+                        required placeholder="Ссылка на картинку">
+                    <span class="popup__field-error url-input-error">Необходимо заполнить данное поле</span>
+
+                    <button aria-label="Сохранить" class="popup__button popup__button_popup_new-place"
+                        type="submit">Создать</button>
+                </form>
+        </section>
     </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+    </footer>
     <template class="card-template">
         <li class="card">
             <img src="" alt="Изображение" class="card__image">
@@ -81,10 +102,8 @@
             <button type="button" aria-label="Удалить" class="card__trash"></button>
         </li>
     </template>
-    <footer class="footer">
-        <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
-    </footer>
     <script src="./scripts/data.js"></script>
+    <script src="./scripts/script-test.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 
