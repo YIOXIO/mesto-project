@@ -8,6 +8,12 @@
 
 
 
+@media screen and (max-width: 900px) {
+    .profile__wrapper {
+        max-width: 770px;
+    }
+}
+
 
 @media screen and (max-width: 768px) {
     .profile__wrapper {
