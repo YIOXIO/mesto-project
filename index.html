@@ -28,21 +28,24 @@
                 <button aria-label="Добавить" type="button" class="profile__button"></button>
             </div>
         </section>
-        <section class="elements">
+        <div class="elements">
             <ul class="elements__cards">
             </ul>
-        </section>
+        </div>
         <section class="popup popup_profile-edit">
             <div class="popup__container">
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_profile-edit"></button>
-                <form name="profile-form" id="edit-form" novalidate>
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__field popup__field_name" value="" name="name" type="text" required
+                <form class="form" name="profile-form" id="edit-form" novalidate>
+                    <h2 class="form__title">Редактировать профиль</h2>
+                    <input class="form__input form__input_name" id="input-name" name="name" type="text" required
                         placeholder="Жак-Ив Кусто">
-                    <input class="popup__field popup__field_duty" value="" name="job" type="text" required
+                    <span class="form__input-error input-name-error"></span>
+
+                    <input class="form__input form__input_duty" id="input-duty" name="duty" type="text" required
                         placeholder="Исследователь океана">
-                    <button aria-label="Сохранить" class="popup__button popup__button_profile-save"
+                    <span class="form__input-error input-duty-error"></span>
+                    <button aria-label="Сохранить" class="form__submit form__submit_profile-save"
                         type="submit">Сохранить</button>
                 </form>
             </div>
@@ -52,41 +55,43 @@
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_popup_new-place"></button>
                 <form class="form" name="profile-form" id="card-form" novalidate>
-                    <h2 class="popup__title">Новое место</h2>
-                    <input class="popup__field popup__field_place" minlength="25" id="input-name" value="" name="place"
-                        type="text" required placeholder="Название">
-                    <span class="popup__field-error input-name-error">Вы пропустили это поле</span>
-                    <input class="popup__field popup__field_url" value="" id="input-url" name="image" type="url"
-                        required placeholder="Ссылка на картинку">
-                    <span class="popup__field-error input-url-error">Введите адрес сайта.</span>
-                    <button aria-label="Сохранить" class="popup__button popup__button_popup_new-place"
+                    <h2 class="form__title">Новое место</h2>
+                    <input class="form__input form__input_place" minlength="5" pattern="^[a-z A-Z]+$" id="input-place"
+                        name="place" type="text" data-error-message="Разрешены только латинские буквы" required
+                        placeholder="Название">
+                    <span class="form__input-error input-place-error"></span>
+                    <input class="form__input input form__input_url" id="input-url" name="image" type="url" required
+                        placeholder="Ссылка на картинку">
+                    <span class="form__input-error input-url-error"></span>
+                    <button aria-label="Сохранить" class="form__submit form__submit_place"
                         type="submit">Создать</button>
                 </form>
             </div>
         </section>
-        <section class="popup popup_image-form">
+        <div class="popup popup_image-form">
             <div class="popup__container popup__container_image">
                 <button aria-label="Закрыть" type="button"
                     class="popup__close-button popup__close-button_popup_image"></button>
                 <figure class="popup__figure">
-                    <img src="" alt="" class="popup__image">
+                    <img src="#" alt="#" class="popup__image">
                     <figcaption class="popup__caption"></figcaption>
                 </figure>
             </div>
-        </section>
+        </div>
         <section class="popup popup_profile-avatar">
             <div class="popup__container">
                 <button aria-label="Закрыть" type="button"
-                    class="popup__close-button popup__close-button_popup_image"></button>
-                <form name="profile-form" id="card-form" novalidate>
-                    <h2 class="popup__title">Обновить аватар</h2>
-                    <input class="popup__field popup__field_url" value="" id="input-url" name="image" type="url"
-                        required placeholder="Ссылка на картинку">
-                    <span class="popup__field-error url-input-error">Необходимо заполнить данное поле</span>
+                    class="popup__close-button popup__close-button_popup_avatar"></button>
+                <form class="form" name="profile-form" id="avatar-form" novalidate>
+                    <h2 class="form__title">Обновить аватар</h2>
+                    <input class="form__input  form__input_avatar" id="avatar-url" name="avatar" type="url" required
+                        placeholder="Ссылка на картинку">
+                    <span class="form__input-error avatar-url-error">Необходимо заполнить данное поле</span>
 
-                    <button aria-label="Сохранить" class="popup__button popup__button_popup_new-place"
-                        type="submit">Создать</button>
+                    <button aria-label="Сохранить" class="form__submit form__submit_avatar"
+                        type="submit">Сохранить</button>
                 </form>
+            </div>
         </section>
     </main>
     <footer class="footer">
@@ -103,7 +108,8 @@
         </li>
     </template>
     <script src="./scripts/data.js"></script>
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/validation.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
