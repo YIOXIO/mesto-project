@@ -1,0 +1,27 @@
+.form__input {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    padding: 0 0 13px;
+    border: 0;
+    border-bottom: 1px solid #0000001c;
+    outline: none;
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 475px) {
+    .form__input {
+        width: 95%;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .form__input {
+        margin-bottom: -2px;
+        width: 100%;
+    }
+}

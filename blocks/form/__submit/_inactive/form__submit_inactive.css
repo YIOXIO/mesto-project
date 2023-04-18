@@ -1,0 +1,19 @@
+.form__submit_inactive {
+    background: #F7F7F7;
+    opacity: .2;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    width: 358px;
+    border-radius: 2px;
+    padding: 14px;
+    margin-top: 42px;
+    border: 0;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    user-select: none;
+    pointer-events: none;
+
+}
