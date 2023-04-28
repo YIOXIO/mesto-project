@@ -13,12 +13,6 @@ const hideInputError = (formElement, inputElement) => {
 };
 
 const checkInputValidity = (formElement, inputElement) => {
-    if (inputElement.validity.patternMismatch) {
-        inputElement.setCustomValidity(inputElement.dataset.errorMessage);
-    } else {
-        inputElement.setCustomValidity("");
-    }
-
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage);
     } else {
@@ -27,39 +21,43 @@ const checkInputValidity = (formElement, inputElement) => {
 };
 
 const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
-        return !inputElement.validity.valid;
-    });
-}
+    return inputList.some(input => !input.validity.valid)
+};
 
 const toggleButtonState = (inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add('form__submit_inactive');
+        buttonElement.disabled = true;
     } else {
         buttonElement.classList.remove('form__submit_inactive');
+        buttonElement.disabled = false;
     }
 };
 
 const setEventListeners = (formElement) => {
     const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-    const buttonElement = formElement.querySelectorAll('.form__submit');
+    const buttonElement = formElement.querySelector('.form__submit');
+    toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
-        inputElement.addEventListener('input', function () {
+        inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement);
             toggleButtonState(inputList, buttonElement);
+
         });
     });
 };
 
 const enableValidation = () => {
     const formList = Array.from(document.querySelectorAll('.form'));
-    formList.forEach((formElement) => {
+    formList.forEach((formElement,) => {
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
-
         setEventListeners(formElement)
+
     });
 }
 
 enableValidation()
+
+export { enableValidation }
