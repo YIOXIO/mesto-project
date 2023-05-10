@@ -36,14 +36,6 @@ const buttonClosePopupAvatar = popupAvatar.querySelector('.popup__close-button_p
 
 
 
-function openPopup(evt) {
-    evt.classList.add('popup_opened');
-}
-
-
-function closePopup(evt) {
-    evt.classList.remove('popup_opened');
-}
 
 // Открыть аватар
 function handleSubmitFormAvatar(evt) {
@@ -152,8 +144,17 @@ initialCards.forEach((initialCards) => {
 });
 
 
-import { initialCards } from './components/data.js'
+import { initialCards } from './components/card.js'
 import { enableValidation } from './components/validation.js';
 import './pages/index.css';
+import { openPopup, closePopup } from './components/utils.js'
 
-enableValidation()
+
+enableValidation({
+    formSelector: '.form',
+    inputSelector: 'form__input',
+    submitButtonSelector: 'form__submit',
+    inactiveButtonClass: 'form__submit_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+});
