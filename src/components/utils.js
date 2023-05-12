@@ -23,4 +23,4 @@ function handleEscClosePopup(evt) {
     }
 }
 
-export { openPopup, closePopup, handleEscClosePopup, handleOverlayClosePopup }
+export { openPopup, closePopup }

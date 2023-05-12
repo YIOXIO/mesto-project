@@ -1,8 +1,3 @@
-
-
-const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
-
-const elements = document.querySelector('.elements__cards');
 const popupImage = document.querySelector('.popup_image-form');
 const popupNameImage = popupImage.querySelector('.popup__caption');
 const popupProfile = document.querySelector('.popup_profile-edit');
@@ -22,139 +17,13 @@ const getInputAvatarUrl = avatarForm.querySelector('.form__input_avatar');
 const profielAvatarImage = document.querySelector('.profile__avatar');
 
 
-// Кнопики для открытия модальных окон
-const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
-const buttonOpenPopupNewCard = document.querySelector('.profile__button');
-const buttonOpenPopupAvatar = document.querySelector('.profile__overlay');
-
-// Кнопки для закрытия модальных окон
-const buttonClosePopupProfile = popupProfile.querySelector('.popup__close-button_profile-edit');
-const buttonClosePopupNewCard = popupNewCard.querySelector('.popup__close-button_popup_new-place');
-const buttonClosePopupImage = popupImage.querySelector('.popup__close-button_popup_image');
-const buttonClosePopupAvatar = popupAvatar.querySelector('.popup__close-button_popup_avatar');
-// ___________________________________________________________________________________________
 
 
 
 
-// Открыть аватар
-function handleSubmitFormAvatar(evt) {
-    evt.preventDefault();
-    profielAvatarImage.src = getInputAvatarUrl.value;
-    avatarForm.reset()
-    closePopup(popupAvatar)
-}
 
-function openAvatar() {
-    openPopup(popupAvatar)
-}
-
-buttonOpenPopupAvatar.addEventListener('click', openAvatar);
-avatarForm.addEventListener('submit', handleSubmitFormAvatar)
-
-
-// Открыть профиль
-function openProfile() {
-    openPopup(popupProfile);
-    getInputProfileName.value = profileName.textContent;
-    getInputProfileDuty.value = profileDuty.textContent;
-};
-
-buttonOpenPopupProfile.addEventListener('click', openProfile);
-// _________________
-
-
-// Редактировать профиль
-function handleSubmitFormProfileEdit(evt) {
-    evt.preventDefault();
-    profileName.textContent = `${getInputProfileName.value}`;
-    profileDuty.textContent = `${getInputProfileDuty.value}`;
-    closePopup(popupProfile)
-
-}
-editForm.addEventListener('submit', handleSubmitFormProfileEdit);
-// ____________________________________
-
-// Удалить карточку 
-function handleDeleteCard(evt) {
-    evt.target.closest('.card').remove()
-};
-// 
-// Поставить лайк
-function handleLikeClick(evt) {
-    evt.target.closest('.card__like').classList.toggle('card__like_active');
-};
-// ________________________________________________________
-// Открыть картинку 
-function openImage(data) {
-    openPopup(popupImage);
-    openPopupImage.src = data.link;
-    openPopupImage.alt = data.name;
-    popupNameImage.textContent = data.name;
-}
-// ____________________________________________________________________________
-
-
-buttonClosePopupImage.addEventListener('click', () => closePopup(popupImage));
-buttonClosePopupNewCard.addEventListener('click', () => closePopup(popupNewCard));
-buttonClosePopupProfile.addEventListener('click', () => closePopup(popupProfile));
-buttonClosePopupAvatar.addEventListener('click', () => closePopup(popupAvatar))
-
-// ____________________________________________________________________
-
-// Добавить новую карточку
-buttonOpenPopupNewCard.addEventListener('click',
-    function () {
-        openPopup(popupNewCard)
-    }
-)
-function handleSubmitFormAddNewCard(evt) {
-    evt.preventDefault()
-    const newCard = {}
-    newCard.name = getInputCardName.value,
-        newCard.link = getInputCardUrl.value;
-    renderCard(newCard);
-    cardForm.reset()
-    closePopup(popupNewCard)
-}
-
-cardForm.addEventListener('submit', handleSubmitFormAddNewCard);
-// __________________________________
-
-
-// Карточки из массива
-function createCard(initialCards) {
-    const card = cardTemplate.cloneNode(true);
-    card.querySelector('.card__image').src = initialCards.link;
-    card.querySelector('.card__image').alt = initialCards.name;
-    card.querySelector('.card__name').textContent = initialCards.name;
-    card.querySelector('.card__trash').addEventListener('click', handleDeleteCard)
-    card.querySelector('.card__like').addEventListener('click', handleLikeClick)
-    card.querySelector('.card__image').addEventListener('click', () => openImage(initialCards));
-
-    return card;
-}
-
-function renderCard(initialCards) {
-    elements.prepend(createCard(initialCards));
-};
-
-initialCards.forEach((initialCards) => {
-    renderCard(initialCards);
-});
-
-
-import { initialCards } from './components/card.js'
-import { enableValidation } from './components/validation.js';
 import './pages/index.css';
-import { openPopup, closePopup } from './components/utils.js'
+import * as modal from './components/modal.js'
 
-
-enableValidation({
-    formSelector: '.form',
-    inputSelector: 'form__input',
-    submitButtonSelector: 'form__submit',
-    inactiveButtonClass: 'form__submit_inactive',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-});
+modal()
+enableValidation();

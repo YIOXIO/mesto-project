@@ -25,4 +25,41 @@ const initialCards = [
     }
 ];
 
-export { initialCards }
+
+
+const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
+const elements = document.querySelector('.elements__cards');
+
+import { openImage } from './modal.js'
+
+// Карточки из массива
+function createCard(initialCards) {
+    const card = cardTemplate.cloneNode(true);
+    card.querySelector('.card__image').src = initialCards.link;
+    card.querySelector('.card__image').alt = initialCards.name;
+    card.querySelector('.card__name').textContent = initialCards.name;
+    card.querySelector('.card__trash').addEventListener('click', handleDeleteCard)
+    card.querySelector('.card__like').addEventListener('click', handleLikeClick)
+    card.querySelector('.card__image').addEventListener('click', () => openImage(initialCards));
+
+    return card;
+}
+
+function renderCard(initialCards) {
+    elements.prepend(createCard(initialCards));
+};
+
+// Удалить карточку 
+function handleDeleteCard(evt) {
+    evt.target.closest('.card').remove()
+};
+// 
+// Поставить лайк
+function handleLikeClick(evt) {
+    evt.target.closest('.card__like').classList.toggle('card__like_active');
+};
+initialCards.forEach((initialCards) => {
+    renderCard(initialCards);
+});
+export { renderCard }
+
