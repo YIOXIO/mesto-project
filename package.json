@@ -2,7 +2,7 @@
   "name": "mesto-project",
   "version": "1.0.0",
   "repository": {
-    "url": "git+https://github.com/{yioxio}/{mesto-project}.git"
+    "url": "git+https://github.com/yioxio/mesto-project.git"
   },
   "description": "* Методология БЭМ\r * Grid\r * Flex\r * Адаптивная верстка\r * Медиа-запросы",
   "main": "index.js",
