@@ -16,6 +16,7 @@ const openPopupImage = document.querySelector('.popup__image');
 const getInputAvatarUrl = avatarForm.querySelector('.form__input_avatar');
 const profielAvatarImage = document.querySelector('.profile__avatar');
 
+
 // Кнопики для открытия модальных окон
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 const buttonOpenPopupNewCard = document.querySelector('.profile__button');
@@ -91,11 +92,12 @@ buttonOpenPopupNewCard.addEventListener('click',
         openPopup(popupNewCard)
     }
 )
+
 function handleSubmitFormAddNewCard(evt) {
     evt.preventDefault()
     const newCard = {}
-    newCard.name = getInputCardName.value,
-        newCard.link = getInputCardUrl.value;
+    newCard.name = getInputCardName.value;
+    newCard.link = getInputCardUrl.value;
     renderCard(newCard);
     cardForm.reset()
     closePopup(popupNewCard)
@@ -109,5 +111,4 @@ cardForm.addEventListener('submit', handleSubmitFormAddNewCard);
 export { openImage, handleSubmitFormAddNewCard, handleSubmitFormProfileEdit, handleSubmitFormAvatar, openProfile }
 import { openPopup, closePopup } from './utils'
 import { renderCard } from './card.js'
-import { enableValidation } from './validation';
-enableValidation();
+

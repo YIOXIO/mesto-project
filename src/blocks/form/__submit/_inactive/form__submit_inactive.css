@@ -5,7 +5,7 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    width: 358px;
+    max-width: 358px;
     border-radius: 2px;
     padding: 14px;
     margin-top: 42px;

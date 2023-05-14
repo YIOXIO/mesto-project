@@ -2,6 +2,8 @@
     cursor: pointer;
     position: relative;
     grid-area: avatar;
+    display: grid;
+    margin-bottom: 15px;
 
 
 }

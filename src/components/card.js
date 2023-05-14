@@ -33,20 +33,21 @@ const elements = document.querySelector('.elements__cards');
 import { openImage } from './modal.js'
 
 // Карточки из массива
-function createCard(initialCards) {
+function createCard(item) {
     const card = cardTemplate.cloneNode(true);
-    card.querySelector('.card__image').src = initialCards.link;
-    card.querySelector('.card__image').alt = initialCards.name;
-    card.querySelector('.card__name').textContent = initialCards.name;
+    const cardImage = card.querySelector('.card__image')
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
+    card.querySelector('.card__name').textContent = item.name;
     card.querySelector('.card__trash').addEventListener('click', handleDeleteCard)
     card.querySelector('.card__like').addEventListener('click', handleLikeClick)
-    card.querySelector('.card__image').addEventListener('click', () => openImage(initialCards));
+    cardImage.addEventListener('click', () => openImage(item));
 
     return card;
 }
 
-function renderCard(initialCards) {
-    elements.prepend(createCard(initialCards));
+function renderCard(item) {
+    elements.prepend(createCard(item));
 };
 
 // Удалить карточку 
@@ -58,8 +59,6 @@ function handleDeleteCard(evt) {
 function handleLikeClick(evt) {
     evt.target.closest('.card__like').classList.toggle('card__like_active');
 };
-initialCards.forEach((initialCards) => {
-    renderCard(initialCards);
-});
+initialCards.forEach(renderCard)
 export { renderCard }
 

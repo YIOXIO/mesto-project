@@ -1,18 +1,17 @@
-function openPopup(evt) {
-    evt.classList.add('popup_opened');
-    evt.addEventListener('click', handleOverlayClosePopup);
+function openPopup(popup) {
+    popup.classList.add('popup_opened');
+    popup.addEventListener('click', handleOverlayClosePopup);
     document.addEventListener('keydown', handleEscClosePopup);
 }
 
-function closePopup(evt) {
-    evt.classList.remove('popup_opened');
-    evt.removeEventListener('click', handleOverlayClosePopup);
+function closePopup(popup) {
+    popup.classList.remove('popup_opened');
+    popup.removeEventListener('click', handleOverlayClosePopup);
     document.removeEventListener('keydown', handleEscClosePopup);
-
 }
 
 function handleOverlayClosePopup(evt) {
-    if (evt.target === evt.target) {
+    if (evt.target === evt.currentTarget) {
         closePopup(evt.target)
     }
 }
