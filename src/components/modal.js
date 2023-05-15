@@ -1,35 +1,23 @@
-const popupImage = document.querySelector('.popup_image-form');
-const popupNameImage = popupImage.querySelector('.popup__caption');
-const popupProfile = document.querySelector('.popup_profile-edit');
-const popupAvatar = document.querySelector('.popup_profile-avatar');
-const profileName = document.querySelector('.profile__name');
-const profileDuty = document.querySelector('.profile__duty');
-const popupNewCard = document.querySelector('.popup_new-place');
-const editForm = document.querySelector('#edit-form');
-const getInputProfileName = editForm.querySelector('.form__input_name');
-const getInputProfileDuty = editForm.querySelector('.form__input_duty');
-const cardForm = document.querySelector('#card-form');
-const getInputCardUrl = cardForm.querySelector('.form__input_url');
-const getInputCardName = cardForm.querySelector('.form__input_place');
-const avatarForm = document.querySelector('#avatar-form');
-const openPopupImage = document.querySelector('.popup__image');
-const getInputAvatarUrl = avatarForm.querySelector('.form__input_avatar');
-const profielAvatarImage = document.querySelector('.profile__avatar');
+import { openPopup, closePopup } from './utils'
+import { renderCard } from './card.js'
+import {
+    popupImage,
+    popupNameImage,
+    popupProfile,
+    popupAvatar,
+    profileName,
+    profileDuty,
+    popupNewCard,
+    getInputProfileName,
+    getInputProfileDuty,
+    getInputCardUrl,
+    getInputCardName,
+    avatarForm,
+    openPopupImage,
+    getInputAvatarUrl,
+    profielAvatarImage,
+} from '../index.js'
 
-
-// Кнопики для открытия модальных окон
-const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
-const buttonOpenPopupNewCard = document.querySelector('.profile__button');
-const buttonOpenPopupAvatar = document.querySelector('.profile__overlay');
-
-// Кнопки для закрытия модальных окон
-const buttonClosePopupProfile = popupProfile.querySelector('.popup__close-button_profile-edit');
-const buttonClosePopupNewCard = popupNewCard.querySelector('.popup__close-button_popup_new-place');
-const buttonClosePopupImage = popupImage.querySelector('.popup__close-button_popup_image');
-const buttonClosePopupAvatar = popupAvatar.querySelector('.popup__close-button_popup_avatar');
-
-
-// Открыть аватар
 function handleSubmitFormAvatar(evt) {
     evt.preventDefault();
     profielAvatarImage.src = getInputAvatarUrl.value;
@@ -41,22 +29,14 @@ function openAvatar() {
     openPopup(popupAvatar)
 }
 
-buttonOpenPopupAvatar.addEventListener('click', openAvatar);
-avatarForm.addEventListener('submit', handleSubmitFormAvatar)
 
-
-// Открыть профиль
 function openProfile() {
     openPopup(popupProfile);
     getInputProfileName.value = profileName.textContent;
     getInputProfileDuty.value = profileDuty.textContent;
 };
 
-buttonOpenPopupProfile.addEventListener('click', openProfile);
-// _________________
 
-
-// Редактировать профиль
 function handleSubmitFormProfileEdit(evt) {
     evt.preventDefault();
     profileName.textContent = `${getInputProfileName.value}`;
@@ -64,34 +44,14 @@ function handleSubmitFormProfileEdit(evt) {
     closePopup(popupProfile)
 
 }
-editForm.addEventListener('submit', handleSubmitFormProfileEdit);
-// ____________________________________
 
 
-// ________________________________________________________
-// Открыть картинку 
-function openImage(initialCards) {
+function openImage(item) {
     openPopup(popupImage);
-    openPopupImage.src = initialCards.link;
-    openPopupImage.alt = initialCards.name;
-    popupNameImage.textContent = initialCards.name;
+    openPopupImage.src = item.link;
+    openPopupImage.alt = item.name;
+    popupNameImage.textContent = item.name;
 }
-// ____________________________________________________________________________
-
-
-buttonClosePopupImage.addEventListener('click', () => closePopup(popupImage));
-buttonClosePopupNewCard.addEventListener('click', () => closePopup(popupNewCard));
-buttonClosePopupProfile.addEventListener('click', () => closePopup(popupProfile));
-buttonClosePopupAvatar.addEventListener('click', () => closePopup(popupAvatar))
-
-// ____________________________________________________________________
-
-// Добавить новую карточку
-buttonOpenPopupNewCard.addEventListener('click',
-    function () {
-        openPopup(popupNewCard)
-    }
-)
 
 
 function handleSubmitFormAddNewCard(evt) {
@@ -100,17 +60,11 @@ function handleSubmitFormAddNewCard(evt) {
     newCard.name = getInputCardName.value;
     newCard.link = getInputCardUrl.value;
     renderCard(newCard);
-    cardForm.reset();
+    evt.target.reset()
     closePopup(popupNewCard);
-    inactiveButton('disabled', formSubmit);
 }
 
-cardForm.addEventListener('submit', handleSubmitFormAddNewCard)
-// _________________________________
 
 
+export { openImage, handleSubmitFormAddNewCard, handleSubmitFormProfileEdit, handleSubmitFormAvatar, openProfile, openAvatar, openPopup }
 
-export { openImage, handleSubmitFormAddNewCard, handleSubmitFormProfileEdit, handleSubmitFormAvatar, openProfile }
-import { openPopup, closePopup } from './utils'
-import { renderCard } from './card.js'
-import { inactiveButton } from './validation.js';

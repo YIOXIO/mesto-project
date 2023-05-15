@@ -1,3 +1,7 @@
+import { openImage } from './modal.js'
+const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
+const elements = document.querySelector('.elements__cards');
+
 const initialCards = [
     {
         name: 'Otherwise by Morcheeba',
@@ -26,13 +30,6 @@ const initialCards = [
 ];
 
 
-
-const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
-const elements = document.querySelector('.elements__cards');
-
-import { openImage } from './modal.js'
-
-// Карточки из массива
 function createCard(item) {
     const card = cardTemplate.cloneNode(true);
     const cardImage = card.querySelector('.card__image')
@@ -50,15 +47,16 @@ function renderCard(item) {
     elements.prepend(createCard(item));
 };
 
-// Удалить карточку 
 function handleDeleteCard(evt) {
     evt.target.closest('.card').remove()
 };
-// 
-// Поставить лайк
+
+
 function handleLikeClick(evt) {
     evt.target.closest('.card__like').classList.toggle('card__like_active');
 };
+
 initialCards.forEach(renderCard)
+
 export { renderCard }
 

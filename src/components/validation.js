@@ -1,3 +1,4 @@
+
 function showInputError(formElement, inputElement, errorMessage, settings) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
@@ -22,10 +23,9 @@ function checkInputValidity(formElement, inputElement, settings) {
     }
 };
 
-//Дописать
 function inactiveButton(buttonElement, settings) {
     buttonElement.classList.add(settings.inactiveButtonClass);
-    buttonElement.disabled = false;
+    buttonElement.disabled = true;
 }
 
 
@@ -45,14 +45,19 @@ function setEventListeners(formElement, settings) {
     const buttonElement = formElement.querySelector(settings.submitButtonSelector);
 
     toggleButtonState(inputList, buttonElement, settings);
-    formElement.addEventListener('reset', () => {
-        toggleButtonState(inputList, buttonElement, settings);
-    });
+
+
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement, settings);
             toggleButtonState(inputList, buttonElement, settings);
         });
+    });
+
+    toggleButtonState(inputList, buttonElement, settings);
+
+    formElement.addEventListener('reset', () => {
+        inactiveButton(buttonElement, settings)
     });
 
 };
