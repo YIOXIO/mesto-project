@@ -48,9 +48,15 @@ function renderCard(item) {
 };
 
 function handleDeleteCard(evt) {
-    evt.target.closest('.card').remove()
-};
-
+    const card = evt.target.closest('.card');
+    const confirmDelete = document.querySelector('.popup_confirm')
+    confirmDelete.classList.add('popup_opened')
+    const confirmButtom = confirmDelete.querySelector('.form__submit_confirm');
+    confirmButtom.addEventListener('click', () => {
+        card.remove();
+        confirmDelete.classList.remove('popup_opened');
+    });
+}
 
 function handleLikeClick(evt) {
     evt.target.closest('.card__like').classList.toggle('card__like_active');
