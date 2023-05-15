@@ -75,3 +75,14 @@ export {
     getInputAvatarUrl,
     profielAvatarImage,
 }
+
+const config = {
+    baseUrl: 'https://nomoreparties.co/v1/cohort-24',
+    headers: {
+        authorization: 'eb0f5dbc-8b03-4a49-97c7-ce41064b06b6',
+        'Content-type': 'application/json'
+    }
+};
+
+console.log(config)
+
