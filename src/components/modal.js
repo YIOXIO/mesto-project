@@ -93,22 +93,24 @@ buttonOpenPopupNewCard.addEventListener('click',
     }
 )
 
+
 function handleSubmitFormAddNewCard(evt) {
     evt.preventDefault()
     const newCard = {}
     newCard.name = getInputCardName.value;
     newCard.link = getInputCardUrl.value;
     renderCard(newCard);
-    cardForm.reset()
-    closePopup(popupNewCard)
+    cardForm.reset();
+    closePopup(popupNewCard);
+    inactiveButton('disabled', formSubmit);
 }
 
-cardForm.addEventListener('submit', handleSubmitFormAddNewCard);
-// __________________________________
+cardForm.addEventListener('submit', handleSubmitFormAddNewCard)
+// _________________________________
 
 
 
 export { openImage, handleSubmitFormAddNewCard, handleSubmitFormProfileEdit, handleSubmitFormAvatar, openProfile }
 import { openPopup, closePopup } from './utils'
 import { renderCard } from './card.js'
-
+import { inactiveButton } from './validation.js';

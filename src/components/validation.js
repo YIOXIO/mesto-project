@@ -22,6 +22,13 @@ function checkInputValidity(formElement, inputElement, settings) {
     }
 };
 
+//Дописать
+function inactiveButton(buttonElement, settings) {
+    buttonElement.classList.add(settings.inactiveButtonClass);
+    buttonElement.disabled = false;
+}
+
+
 function hasInvalidInput(inputList) {
     return inputList.some((inputElement) => !inputElement.validity.valid);
 };
@@ -30,7 +37,7 @@ function toggleButtonState(inputList, buttonElement, settings) {
     const hasInvalid = hasInvalidInput(inputList);
 
     buttonElement.classList.toggle(settings.inactiveButtonClass, hasInvalid);
-    buttonElement.disabled = false;
+    buttonElement.disabled = hasInvalid;
 };
 
 function setEventListeners(formElement, settings) {
@@ -61,4 +68,4 @@ function enableValidation(settings) {
 };
 
 
-export { enableValidation };
+export { enableValidation, inactiveButton };
