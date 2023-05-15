@@ -1,0 +1,11 @@
+.card__count-like {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+    grid-area: count;
+    justify-self: center;
+    margin: 0;
+    padding: 0;
+}

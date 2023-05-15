@@ -1,8 +1,12 @@
 .card__wrapper {
     background: white;
-    display: flex;
-    padding: 25px 20px 26px 21px;
+    display: grid;
+    padding: 25px 13px 26px 13px;
     align-items: center;
     justify-content: space-between;
     border-radius: 0 0 10px 10px;
+    grid-template-areas:
+        "title heart"
+        ". count";
+
 }
