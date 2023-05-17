@@ -6,7 +6,7 @@
     justify-content: space-between;
     border-radius: 0 0 10px 10px;
     grid-template-areas:
-        "title heart"
-        ". count";
+        " title heart"
+        "title count";
 
 }

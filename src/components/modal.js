@@ -16,6 +16,7 @@ import {
     openPopupImage,
     getInputAvatarUrl,
     profielAvatarImage,
+    editForm,
 } from '../index.js'
 
 function handleSubmitFormAvatar(evt) {
@@ -42,7 +43,7 @@ function handleSubmitFormProfileEdit(evt) {
     profileName.textContent = `${getInputProfileName.value}`;
     profileDuty.textContent = `${getInputProfileDuty.value}`;
     closePopup(popupProfile)
-
+    evt.target.reset()
 }
 
 

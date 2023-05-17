@@ -3,6 +3,7 @@ import { openAvatar, openProfile, handleSubmitFormAvatar, handleSubmitFormProfil
 import { openPopup, closePopup } from './components/utils.js';
 import { enableValidation } from './components/validation.js';
 
+
 const popupImage = document.querySelector('.popup_image-form');
 const popupNameImage = popupImage.querySelector('.popup__caption');
 const popupProfile = document.querySelector('.popup_profile-edit');
@@ -76,7 +77,14 @@ export {
     profielAvatarImage,
 }
 
+import { config, getCardsData } from './components/api.js'
 
-import { getUserInfo, postNewCard } from './components/api';
-console.log(getUserInfo)
-console.log(postNewCard)
+fetch('https://nomoreparties.co/v1/plus-cohort-24/cards', {
+    headers: {
+        authorization: "eb0f5dbc-8b03-4a49-97c7-ce41064b06b6",
+    }
+})
+    .then(res => res.json())
+    .then((result) => {
+        console.log(result)
+    })
