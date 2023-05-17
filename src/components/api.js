@@ -8,7 +8,7 @@ const config = {
     }
 };
 
-const getUserInfo = () => {
+function getUserInfo() {
     return fetch(`${config.baseUrl}/users/me`, {
         method: 'GET',
         headers: config.headers
@@ -16,7 +16,7 @@ const getUserInfo = () => {
         .then(response);
 }
 
-const getCardsData = () => {
+function getCardsData() {
     return fetch(`${config.baseUrl}/cards`, {
         method: 'GET',
         headers: config.headers
@@ -24,7 +24,7 @@ const getCardsData = () => {
         .then(response => response.json());
 }
 
-const patchProfile = (name, about) => {
+function patchProfile(name, about) {
     return fetch(`${config.baseUrl}/users/me`, {
         method: 'PATCH',
         headers: config.headers,
@@ -36,7 +36,7 @@ const patchProfile = (name, about) => {
         .then(response);
 }
 
-const patchAvatar = (url) => {
+function patchAvatar(url) {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: config.headers,
@@ -47,7 +47,7 @@ const patchAvatar = (url) => {
         .then(response);
 }
 
-const postNewCard = (name, url) => {
+function postNewCard(name, url) {
     return fetch(`${config.baseUrl}/cards`, {
         method: 'POST',
         headers: config.headers,
@@ -59,7 +59,7 @@ const postNewCard = (name, url) => {
         .then(response);
 }
 
-const deleteCard = (cardId) => {
+function deleteCard(cardId) {
     return fetch(`${config.baseUrl}/cards/${cardId}`, {
         method: 'DELETE',
         headers: config.headers
@@ -67,7 +67,7 @@ const deleteCard = (cardId) => {
         .then(response);
 }
 
-const putLike = (cardId) => {
+function putLike(cardId) {
     return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
         method: 'PUT',
         headers: config.headers
@@ -75,7 +75,7 @@ const putLike = (cardId) => {
         .then(response);
 }
 
-const deleteLike = (cardId) => {
+function deleteLike(cardId) {
     return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
         method: 'DELETE',
         headers: config.headers,
