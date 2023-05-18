@@ -1,6 +1,6 @@
 import { openImage } from './modal.js'
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
-export const elements = document.querySelector('.elements__cards');
+const elements = document.querySelector('.elements__cards');
 
 const initialCards = [
     {

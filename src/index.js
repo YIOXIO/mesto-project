@@ -90,7 +90,8 @@ import {
 
 
 
-getUserInfo()
-getCardsData()
-patchProfile()
-postNewCard()
+// getUserInfo()
+// getCardsData()
+// patchProfile()
+// postNewCard()
+

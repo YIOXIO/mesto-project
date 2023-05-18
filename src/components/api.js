@@ -29,8 +29,8 @@ const patchProfile = (name, about) => {
         method: 'PATCH',
         headers: config.headers,
         body: JSON.stringify({
-            name: 'Marie Skłodowska Curie',
-            about: 'Physicist and Chemist'
+            name: name,
+            about: about
         })
     })
         .then(response);
@@ -47,13 +47,13 @@ function patchAvatar(url) {
         .then(response);
 }
 
-function postNewCard(name, url) {
+function postNewCard(name, link) {
     return fetch(`${config.baseUrl}/cards`, {
         method: 'POST',
         headers: config.headers,
         body: JSON.stringify({
-            name: "Baikal",
-            link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg"
+            name: name,
+            link: link
         })
     })
         .then(response);

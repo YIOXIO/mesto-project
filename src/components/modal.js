@@ -30,11 +30,17 @@ function openAvatar() {
     openPopup(popupAvatar)
 }
 
+import { getUserInfo } from './api';
 
 function openProfile() {
     openPopup(popupProfile);
-    getInputProfileName.value = profileName.textContent;
-    getInputProfileDuty.value = profileDuty.textContent;
+    getUserInfo()
+        .then(response => response.json())
+        .then(data => {
+            getInputProfileName.value = data.name;
+            getInputProfileDuty.value = data.about;
+        })
+        .catch(error => console.error(error));
 };
 
 
