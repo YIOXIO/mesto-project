@@ -1,6 +1,6 @@
 import { response } from './utils.js'
 
-const config = {
+export const config = {
     baseUrl: 'https://nomoreparties.co/v1/plus-cohort-24',
     headers: {
         authorization: "eb0f5dbc-8b03-4a49-97c7-ce41064b06b6",
@@ -24,13 +24,13 @@ function getCardsData() {
         .then(response => response.json());
 }
 
-function patchProfile(name, about) {
+const patchProfile = (name, about) => {
     return fetch(`${config.baseUrl}/users/me`, {
         method: 'PATCH',
         headers: config.headers,
         body: JSON.stringify({
-            name,
-            about
+            name: 'Marie Skłodowska Curie',
+            about: 'Physicist and Chemist'
         })
     })
         .then(response);
@@ -52,31 +52,31 @@ function postNewCard(name, url) {
         method: 'POST',
         headers: config.headers,
         body: JSON.stringify({
-            name,
-            link: url
+            name: "Baikal",
+            link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg"
         })
     })
         .then(response);
 }
 
-function deleteCard(cardId) {
-    return fetch(`${config.baseUrl}/cards/${cardId}`, {
+function deleteCard(id) {
+    return fetch(`${config.baseUrl}/cards/${id}`, {
         method: 'DELETE',
         headers: config.headers
     })
         .then(response);
 }
 
-function putLike(cardId) {
-    return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+function putLike(id) {
+    return fetch(`${config.baseUrl}/cards/likes/${id}`, {
         method: 'PUT',
         headers: config.headers
     })
         .then(response);
 }
 
-function deleteLike(cardId) {
-    return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+function deleteLike(id) {
+    return fetch(`${config.baseUrl}/cards/likes/${id}`, {
         method: 'DELETE',
         headers: config.headers,
     })

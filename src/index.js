@@ -77,14 +77,20 @@ export {
     profielAvatarImage,
 }
 
-import { config, getCardsData } from './components/api.js'
+import {
+    getUserInfo,
+    getCardsData,
+    patchProfile,
+    patchAvatar,
+    postNewCard,
+    deleteCard,
+    putLike,
+    deleteLike,
+} from './components/api.js'
 
-fetch('https://nomoreparties.co/v1/plus-cohort-24/cards', {
-    headers: {
-        authorization: "eb0f5dbc-8b03-4a49-97c7-ce41064b06b6",
-    }
-})
-    .then(res => res.json())
-    .then((result) => {
-        console.log(result)
-    })
+
+
+getUserInfo()
+getCardsData()
+patchProfile()
+postNewCard()
