@@ -16,7 +16,6 @@ import {
     openPopupImage,
     getInputAvatarUrl,
     profielAvatarImage,
-    editForm,
 } from '../index.js'
 
 function handleSubmitFormAvatar(evt) {
