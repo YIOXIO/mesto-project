@@ -18,16 +18,9 @@ import {
     profielAvatarImage,
 } from '../index.js'
 
-import { getUserInfo, patchProfile } from './api';
+import { getUserInfo, patchAvatar, patchProfile } from './api';
 
-getUserInfo()
 
-function handleSubmitFormAvatar(evt) {
-    evt.preventDefault();
-    profielAvatarImage.src = getInputAvatarUrl.value;
-    avatarForm.reset()
-    closePopup(popupAvatar)
-}
 
 function openAvatar() {
     openPopup(popupAvatar)
@@ -48,6 +41,7 @@ function handleSubmitFormProfileEdit(evt) {
         .then((res) => {
             profileName.textContent = res.name;
             profileDuty.textContent = res.about;
+
         })
         .catch((err) => console.log(err))
 
@@ -72,6 +66,29 @@ function handleSubmitFormAddNewCard(evt) {
     evt.target.reset()
     closePopup(popupNewCard);
 }
+
+
+function handleSubmitFormAvatar(evt) {
+    evt.preventDefault();
+    const avatarValue = getInputAvatarUrl.value
+    patchAvatar(avatarValue)
+        .then((res) => {
+            profielAvatarImage.src = res.avatar;
+
+        })
+        .catch((err) => console.log(err))
+    avatarForm.reset()
+    closePopup(popupAvatar)
+}
+
+
+getUserInfo()
+    .then((res) => {
+        profileName.textContent = res.name;
+        profileDuty.textContent = res.about;
+        profielAvatarImage.src = res.avatar;
+    })
+    .catch((err) => console.log(err))
 
 
 

@@ -13,7 +13,12 @@ function getUserInfo() {
         method: 'GET',
         headers: config.headers
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 function getCardsData() {
@@ -21,7 +26,12 @@ function getCardsData() {
         method: 'GET',
         headers: config.headers
     })
-        .then(response => response.json());
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 const patchProfile = (name, about) => {
@@ -33,18 +43,28 @@ const patchProfile = (name, about) => {
             about: about
         })
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
-function patchAvatar(data) {
+function patchAvatar(url) {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: config.headers,
         body: JSON.stringify({
-            avatar: data.url
+            avatar: url
         })
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 function postNewCard(name, link) {
@@ -56,7 +76,12 @@ function postNewCard(name, link) {
             link: link
         })
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 function deleteCard(id) {
@@ -64,7 +89,12 @@ function deleteCard(id) {
         method: 'DELETE',
         headers: config.headers
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 function putLike(id) {
@@ -72,7 +102,12 @@ function putLike(id) {
         method: 'PUT',
         headers: config.headers
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 function deleteLike(id) {
@@ -80,7 +115,12 @@ function deleteLike(id) {
         method: 'DELETE',
         headers: config.headers,
     })
-        .then(response);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`error: ${res.status}`);
+        });
 }
 
 export {

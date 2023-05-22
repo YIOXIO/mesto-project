@@ -22,14 +22,5 @@ function handleEscClosePopup(evt) {
     }
 }
 
-const response = {
-    then: function (response) {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(`Error: ${response.status}`);
-    }
-};
 
-
-export { openPopup, closePopup, response }
+export { openPopup, closePopup }
