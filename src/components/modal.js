@@ -35,17 +35,18 @@ function openProfile() {
 
 function handleSubmitFormProfileEdit(evt) {
     evt.preventDefault();
-    const nameValue = getInputProfileName.value;
-    const dutyValue = getInputProfileDuty.value;
-    patchProfile(nameValue, dutyValue)
+    const profileNamApi = getInputProfileName.value;
+    const profileDutyApi = getInputProfileDuty.value;
+    patchProfile(profileNamApi, profileDutyApi)
         .then((res) => {
             profileName.textContent = res.name;
             profileDuty.textContent = res.about;
+            closePopup(popupProfile)
+
 
         })
         .catch((err) => console.log(err))
 
-    closePopup(popupProfile)
 }
 
 
@@ -70,17 +71,17 @@ function handleSubmitFormAddNewCard(evt) {
 
 function handleSubmitFormAvatar(evt) {
     evt.preventDefault();
-    const avatarValue = getInputAvatarUrl.value
+    const profileAvatarApi = getInputAvatarUrl.value;
     patchAvatar(avatarValue)
         .then((res) => {
             profielAvatarImage.src = res.avatar;
-
+            avatarForm.reset();
+            closePopup(profileAvatarApi);
         })
-        .catch((err) => console.log(err))
-    avatarForm.reset()
-    closePopup(popupAvatar)
+        .catch((err) => {
+            console.log(err);
+        });
 }
-
 
 getUserInfo()
     .then((res) => {

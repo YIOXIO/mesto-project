@@ -1,3 +1,4 @@
+import { getCardsData } from './api.js';
 import { openImage } from './modal.js'
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
 const elements = document.querySelector('.elements__cards');
@@ -57,6 +58,7 @@ function handleDeleteCard(evt) {
         confirmDelete.classList.remove('popup_opened');
     });
 }
+
 
 function handleLikeClick(evt) {
     evt.target.closest('.card__like').classList.toggle('card__like_active');
