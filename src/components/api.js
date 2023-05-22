@@ -36,12 +36,12 @@ const patchProfile = (name, about) => {
         .then(response);
 }
 
-function patchAvatar(url) {
+function patchAvatar(data) {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: config.headers,
         body: JSON.stringify({
-            avatar: url
+            avatar: data.url
         })
     })
         .then(response);

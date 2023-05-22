@@ -18,6 +18,10 @@ import {
     profielAvatarImage,
 } from '../index.js'
 
+import { getUserInfo, patchProfile } from './api';
+
+getUserInfo()
+
 function handleSubmitFormAvatar(evt) {
     evt.preventDefault();
     profielAvatarImage.src = getInputAvatarUrl.value;
@@ -29,26 +33,25 @@ function openAvatar() {
     openPopup(popupAvatar)
 }
 
-import { getUserInfo } from './api';
-
 function openProfile() {
     openPopup(popupProfile);
-    getUserInfo()
-        .then(response => response.json())
-        .then(data => {
-            getInputProfileName.value = data.name;
-            getInputProfileDuty.value = data.about;
-        })
-        .catch(error => console.error(error));
+    getInputProfileName.value = profileName.textContent;
+    getInputProfileDuty.value = profileDuty.textContent;
 };
 
 
 function handleSubmitFormProfileEdit(evt) {
     evt.preventDefault();
-    profileName.textContent = `${getInputProfileName.value}`;
-    profileDuty.textContent = `${getInputProfileDuty.value}`;
+    const nameValue = getInputProfileName.value;
+    const dutyValue = getInputProfileDuty.value;
+    patchProfile(nameValue, dutyValue)
+        .then((res) => {
+            profileName.textContent = res.name;
+            profileDuty.textContent = res.about;
+        })
+        .catch((err) => console.log(err))
+
     closePopup(popupProfile)
-    evt.target.reset()
 }
 
 
