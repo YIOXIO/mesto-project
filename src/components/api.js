@@ -1,5 +1,3 @@
-import { response } from './utils.js'
-
 export const config = {
     baseUrl: 'https://nomoreparties.co/v1/plus-cohort-24',
     headers: {
@@ -8,124 +6,109 @@ export const config = {
     }
 };
 
-function getUserInfo() {
-    return fetch(`${config.baseUrl}/users/me`, {
+async function getUserInfo() {
+    const res = await fetch(`${config.baseUrl}/users/me`, {
         method: 'GET',
         headers: config.headers
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-function getCardsData() {
-    return fetch(`${config.baseUrl}/cards`, {
+async function getInitialCards() {
+    const res = await fetch(`${config.baseUrl}/cards`, {
         method: 'GET',
         headers: config.headers
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-const patchProfile = (name, about) => {
-    return fetch(`${config.baseUrl}/users/me`, {
+async function patchProfile(name, about) {
+    const res = await fetch(`${config.baseUrl}/users/me`, {
         method: 'PATCH',
         headers: config.headers,
         body: JSON.stringify({
             name: name,
             about: about
         })
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-function patchAvatar(url) {
-    return fetch(`${config.baseUrl}/users/me/avatar`, {
+async function patchAvatar(url) {
+    const res = await fetch(`${config.baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: config.headers,
         body: JSON.stringify({
             avatar: url
         })
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-function postNewCard(name, link) {
-    return fetch(`${config.baseUrl}/cards`, {
+async function postNewCard(newName, link) {
+    const res = await fetch(`${config.baseUrl}/cards`, {
         method: 'POST',
         headers: config.headers,
         body: JSON.stringify({
-            name: name,
+            name: newName,
             link: link
         })
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-function deleteCard(id) {
-    return fetch(`${config.baseUrl}/cards/${id}`, {
+async function deleteCard(cardId) {
+    const res = await fetch(`${config.baseUrl}/cards/${cardId}`, {
         method: 'DELETE',
         headers: config.headers
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-function putLike(id) {
-    return fetch(`${config.baseUrl}/cards/likes/${id}`, {
+async function putLike(cardId) {
+    const res = await fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
         method: 'PUT',
         headers: config.headers
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
-function deleteLike(id) {
-    return fetch(`${config.baseUrl}/cards/likes/${id}`, {
+async function deleteLike(cardId) {
+    const res = await fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
         method: 'DELETE',
         headers: config.headers,
-    })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`error: ${res.status}`);
-        });
+    });
+    if (res.ok) {
+        return res.json();
+    }
+    return await Promise.reject(`error: ${res.status}`);
 }
 
 export {
     getUserInfo,
-    getCardsData,
+    getInitialCards,
     patchProfile,
     patchAvatar,
     postNewCard,

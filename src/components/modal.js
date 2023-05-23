@@ -42,8 +42,6 @@ function handleSubmitFormProfileEdit(evt) {
             profileName.textContent = res.name;
             profileDuty.textContent = res.about;
             closePopup(popupProfile)
-
-
         })
         .catch((err) => console.log(err))
 
@@ -72,11 +70,11 @@ function handleSubmitFormAddNewCard(evt) {
 function handleSubmitFormAvatar(evt) {
     evt.preventDefault();
     const profileAvatarApi = getInputAvatarUrl.value;
-    patchAvatar(avatarValue)
+    patchAvatar(profileAvatarApi)
         .then((res) => {
             profielAvatarImage.src = res.avatar;
             avatarForm.reset();
-            closePopup(profileAvatarApi);
+            closePopup(popupAvatar);
         })
         .catch((err) => {
             console.log(err);

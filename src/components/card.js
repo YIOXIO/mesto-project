@@ -1,4 +1,4 @@
-import { getCardsData } from './api.js';
+import { getInitialCards } from './api.js';
 import { openImage } from './modal.js'
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
 const elements = document.querySelector('.elements__cards');
@@ -37,8 +37,8 @@ function createCard(item) {
     cardImage.src = item.link;
     cardImage.alt = item.name;
     card.querySelector('.card__name').textContent = item.name;
-    card.querySelector('.card__trash').addEventListener('click', handleDeleteCard)
-    card.querySelector('.card__like').addEventListener('click', handleLikeClick)
+    card.querySelector('.card__trash').addEventListener('click', handleDeleteCard);
+    card.querySelector('.card__like').addEventListener('click', handleLikeClick);
     cardImage.addEventListener('click', () => openImage(item));
 
     return card;
@@ -62,7 +62,14 @@ function handleDeleteCard(evt) {
 
 function handleLikeClick(evt) {
     evt.target.closest('.card__like').classList.toggle('card__like_active');
+
 };
+
+getInitialCards()
+    .then((res) => {
+        console.log(res)
+    })
+
 
 initialCards.forEach(renderCard)
 
