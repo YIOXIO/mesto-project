@@ -30,9 +30,9 @@
 .elements__cards{display:grid;gap:20px 17px;grid-template-columns:repeat(auto-fit,282px);justify-content:start;list-style:none;margin:0 auto 66px;max-width:880px;padding:0}@media screen and (max-width:900px){.elements__cards{justify-content:center;max-width:85vw}}@media screen and (max-width:320px){.elements__cards{margin:0 auto 48px}}
 .card{display:flex;flex-direction:column;position:relative}
 .card__image{border-radius:10px 10px 0 0;cursor:pointer;height:282px;-o-object-fit:cover;object-fit:cover;opacity:.9;width:100%}
-.card__wrapper{align-items:center;background:#fff;border-radius:0 0 10px 10px;display:grid;grid-template-areas:"title heart" ". count";justify-content:space-between;padding:25px 13px 26px}
-.card__name{color:#000;font-size:24px;font-weight:900;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.card__like{background:url(1ad06e85f169668a1f36.svg);background-position:50%;background-repeat:no-repeat;border:0;cursor:pointer;height:24px;padding:0;width:24px}.card__like:hover{opacity:.5}
+.card__wrapper{align-items:center;background:#fff;border-radius:0 0 10px 10px;display:grid;grid-template-areas:" title heart" "title count";justify-content:space-between;padding:25px 13px 26px}
+.card__name{color:#000;font-size:24px;font-weight:900;grid-area:title;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card__like{background:url(1ad06e85f169668a1f36.svg);background-position:50%;background-repeat:no-repeat;border:0;cursor:pointer;grid-area:heart;height:24px;padding:0;width:24px}.card__like:hover{opacity:.5}
 .card__like_active{background-image:url(35948469632d0421d697.svg)}
 .card__trash{background:url(e3c42771bff3aaa52f76.svg);background-position:50%;background-repeat:no-repeat;background-size:contain;border:0;cursor:pointer;height:19px;padding:0;position:absolute;right:20px;top:20px;width:18px}.card__trash:hover{opacity:.5}
 .card__count-like{color:#000;font-size:13px;font-weight:400;grid-area:count;justify-self:center;line-height:16px;margin:0;padding:0;text-align:center}
