@@ -18,7 +18,7 @@ import {
     profielAvatarImage,
 } from '../index.js'
 
-import { getUserInfo, patchAvatar, patchProfile } from './api';
+import { getUserInfo, patchAvatar, patchProfile, postNewCard } from './api';
 
 
 
@@ -55,17 +55,20 @@ function openImage(item) {
     popupNameImage.textContent = item.name;
 }
 
-
 function handleSubmitFormAddNewCard(evt) {
     evt.preventDefault()
     const newCard = {}
     newCard.name = getInputCardName.value;
     newCard.link = getInputCardUrl.value;
-    renderCard(newCard);
-    evt.target.reset()
-    closePopup(popupNewCard);
-}
 
+    postNewCard(newCard.name, newCard.link)
+        .then(data => {
+            renderCard(data);
+            closePopup(popupNewCard);
+        })
+        .catch(err => console.log(err));
+    evt.target.reset()
+}
 
 function handleSubmitFormAvatar(evt) {
     evt.preventDefault();

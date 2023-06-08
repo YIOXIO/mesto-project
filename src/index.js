@@ -77,21 +77,6 @@ export {
     profielAvatarImage,
 }
 
-import {
-    getUserInfo,
-    getCardsData,
-    patchProfile,
-    patchAvatar,
-    postNewCard,
-    deleteCard,
-    putLike,
-    deleteLike,
-} from './components/api.js'
+import { deleteCard } from './components/api';
 
-
-
-// getUserInfo()
-// getCardsData()
-// patchProfile()
-// postNewCard()
-
+// deleteCard('6481bffb53450f07f8d0cf9e').then(data => console.log(data)).catch(err => console.log(err));

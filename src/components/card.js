@@ -10,8 +10,6 @@ function createCard(cardData) {
     imageElement.src = cardData.link;
     imageElement.alt = cardData.name;
     card.querySelector('.card__name').textContent = cardData.name;
-
-    card.querySelector('.card__like')
     card.querySelector('.card__count-like')
     card.querySelector('.card__trash').addEventListener('click', handleDeleteCard);
     card.querySelector('.card__like').addEventListener('click', handleLikeClick);
@@ -45,5 +43,7 @@ function handleDeleteCard(event) {
 function handleLikeClick(event) {
     event.target.closest('.card__like').classList.toggle('card__like_active');
 };
+
+// postNewCard('ASDF', 'https://neva-transfer.ru/wp-content/uploads/2022/01/oreshek02.jpg').then(data => console.log(data)).catch(err => console.log(err));
 
 export { renderCard }
