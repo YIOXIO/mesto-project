@@ -73,8 +73,8 @@ async function postNewCard(newName, link) {
     return await Promise.reject(`error: ${res.status}`);
 }
 
-async function deleteCard(cardId) {
-    const res = await fetch(`${config.baseUrl}/cards/${cardId}`, {
+async function deleteCard(id) {
+    const res = await fetch(`${config.baseUrl}/cards/${id}`, {
         method: 'DELETE',
         headers: config.headers
     });
@@ -84,8 +84,8 @@ async function deleteCard(cardId) {
     return await Promise.reject(`error: ${res.status}`);
 }
 
-async function putLike(cardId) {
-    const res = await fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+async function putLike(id) {
+    const res = await fetch(`${config.baseUrl}/cards/likes/${id}`, {
         method: 'PUT',
         headers: config.headers
     });
@@ -95,8 +95,8 @@ async function putLike(cardId) {
     return await Promise.reject(`error: ${res.status}`);
 }
 
-async function deleteLike(cardId) {
-    const res = await fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+async function deleteLike(id) {
+    const res = await fetch(`${config.baseUrl}/cards/likes/${id}`, {
         method: 'DELETE',
         headers: config.headers,
     });
